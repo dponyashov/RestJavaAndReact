@@ -146,13 +146,11 @@ public class PersonServiceImpl implements PersonService {
 
         return personRepository.save(entPerson).getWeapons().stream()
                 .map(
-                        weapon -> {
-                            return WeaponDTO.builder()
-                                    .id(weapon.getId())
-                                    .name(weapon.getName())
-                                    .description(weapon.getDescription())
-                                    .build();
-                        }
+                        weapon -> WeaponDTO.builder()
+                                .id(weapon.getId())
+                                .name(weapon.getName())
+                                .description(weapon.getDescription())
+                                .build()
                 ).toList();
     }
 
@@ -170,13 +168,11 @@ public class PersonServiceImpl implements PersonService {
 
         return personRepository.save(entPerson).getWeapons().stream()
                 .map(
-                        weapon -> {
-                            return WeaponDTO.builder()
-                                    .id(weapon.getId())
-                                    .name(weapon.getName())
-                                    .description(weapon.getDescription())
-                                    .build();
-                        }
+                        weapon -> WeaponDTO.builder()
+                                .id(weapon.getId())
+                                .name(weapon.getName())
+                                .description(weapon.getDescription())
+                                .build()
                 ).toList();
     }
 
@@ -194,13 +190,11 @@ public class PersonServiceImpl implements PersonService {
 
         return personRepository.save(entPerson).getItems().stream()
                 .map(
-                        item -> {
-                            return ItemDTO.builder()
-                                    .id(item.getId())
-                                    .name(item.getName())
-                                    .description(item.getDescription())
-                                    .build();
-                        }
+                        item -> ItemDTO.builder()
+                                .id(item.getId())
+                                .name(item.getName())
+                                .description(item.getDescription())
+                                .build()
                 ).toList();
     }
 
@@ -260,13 +254,11 @@ public class PersonServiceImpl implements PersonService {
 
         return personRepository.save(entPerson).getArmors().stream()
                 .map(
-                        armor -> {
-                            return ArmorDTO.builder()
-                                    .id(armor.getId())
-                                    .name(armor.getName())
-                                    .description(armor.getDescription())
-                                    .build();
-                        }
+                        armor -> ArmorDTO.builder()
+                                .id(armor.getId())
+                                .name(armor.getName())
+                                .description(armor.getDescription())
+                                .build()
                 ).toList();
     }
 

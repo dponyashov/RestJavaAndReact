@@ -1,6 +1,5 @@
 package ru.dponyashov.services;
 
-import ru.dponyashov.dto.ArmorDTO;
 import ru.dponyashov.dto.WeaponDTO;
 
 import java.util.Collection;
