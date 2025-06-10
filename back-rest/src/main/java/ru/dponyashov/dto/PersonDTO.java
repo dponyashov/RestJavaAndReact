@@ -2,8 +2,6 @@ package ru.dponyashov.dto;
 
 import lombok.*;
 
-import java.util.Collection;
-
 @Getter
 @Setter
 @NoArgsConstructor

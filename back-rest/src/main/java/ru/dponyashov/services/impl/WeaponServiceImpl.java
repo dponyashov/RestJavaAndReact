@@ -20,7 +20,7 @@ public class WeaponServiceImpl implements WeaponService {
     @Override
     public Collection<WeaponDTO> getWeapons() {
         return weaponRepository.findAll().stream()
-                .map(ent->WeaponDTO.builder()
+                .map(ent -> WeaponDTO.builder()
                         .name(ent.getName())
                         .description(ent.getDescription())
                         .id(ent.getId())
@@ -31,7 +31,7 @@ public class WeaponServiceImpl implements WeaponService {
     @Override
     public WeaponDTO getWeaponById(Long id) {
         return weaponRepository.findById(id)
-                .map(ent->WeaponDTO.builder()
+                .map(ent -> WeaponDTO.builder()
                         .name(ent.getName())
                         .description(ent.getDescription())
                         .id(ent.getId())
@@ -43,7 +43,7 @@ public class WeaponServiceImpl implements WeaponService {
     public WeaponDTO save(Long id, WeaponDTO weapon) {
 
         WeaponDTO weaponFromDB = getWeaponById(id);
-        if(weaponFromDB == null){
+        if (weaponFromDB == null) {
             log.info("Не найден Weapon с id: {} для обновления", id);
         }
 

@@ -21,7 +21,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Collection<ItemDTO> getItems() {
         return itemRepository.findAll().stream()
-                .map(ent->ItemDTO.builder()
+                .map(ent -> ItemDTO.builder()
                         .name(ent.getName())
                         .description(ent.getDescription())
                         .id(ent.getId())
@@ -32,7 +32,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public ItemDTO getItemById(Long id) {
         return itemRepository.findById(id)
-                .map(ent->ItemDTO.builder()
+                .map(ent -> ItemDTO.builder()
                         .name(ent.getName())
                         .description(ent.getDescription())
                         .id(ent.getId())
@@ -44,7 +44,7 @@ public class ItemServiceImpl implements ItemService {
     public ItemDTO save(Long id, ItemDTO item) {
 
         ItemDTO itemFromDB = getItemById(id);
-        if(itemFromDB == null){
+        if (itemFromDB == null) {
             log.info("Не найден Item с id: {} для обновления", id);
         }
 

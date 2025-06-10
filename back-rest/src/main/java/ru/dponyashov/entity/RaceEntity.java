@@ -21,6 +21,6 @@ public class RaceEntity {
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="race_id", referencedColumnName = "id")
+    @JoinColumn(name = "race_id", referencedColumnName = "id")
     private Collection<PersonEntity> persons;
 }

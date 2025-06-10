@@ -20,33 +20,33 @@ public class ProfessionController {
     private final ProfessionService professionService;
 
     @GetMapping
-    public Collection<ProfessionDTO> getProfessions(){
+    public Collection<ProfessionDTO> getProfessions() {
         return professionService.getProfessions();
     }
 
     @GetMapping("/{id:\\d+}")
-    public ProfessionDTO getProfessionById(@PathVariable("id") Long id){
+    public ProfessionDTO getProfessionById(@PathVariable("id") Long id) {
         return professionService.getProfessionById(id);
     }
 
     @PostMapping
-    public ProfessionDTO saveNewProfession(@RequestBody ProfessionDTO newProfession){
+    public ProfessionDTO saveNewProfession(@RequestBody ProfessionDTO newProfession) {
         return professionService.save(newProfession);
     }
 
     @PutMapping("/{id:\\d+}")
-    public ProfessionDTO saveProfession(@PathVariable("id") Long id, @RequestBody ProfessionDTO newProfession){
+    public ProfessionDTO saveProfession(@PathVariable("id") Long id, @RequestBody ProfessionDTO newProfession) {
         return professionService.save(id, newProfession);
     }
 
     @DeleteMapping("/{id:\\d+}")
-    public void deleteProfession(@PathVariable("id") Long id){
+    public void deleteProfession(@PathVariable("id") Long id) {
         professionService.deleteProfessionById(id);
     }
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<ProblemDetail> handlerNoSuchElementException(NoSuchElementException exception,
-                                                                       Locale locale){
+                                                                       Locale locale) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
                         "Профессия не найдена!")

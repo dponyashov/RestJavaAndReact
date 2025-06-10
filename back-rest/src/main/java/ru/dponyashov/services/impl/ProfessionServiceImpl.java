@@ -20,7 +20,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public Collection<ProfessionDTO> getProfessions() {
         return professionRepository.findAll().stream()
-                .map(ent->ProfessionDTO.builder()
+                .map(ent -> ProfessionDTO.builder()
                         .name(ent.getName())
                         .id(ent.getId())
                         .build())
@@ -30,7 +30,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public ProfessionDTO getProfessionById(Long id) {
         return professionRepository.findById(id)
-                .map(ent->ProfessionDTO.builder()
+                .map(ent -> ProfessionDTO.builder()
                         .name(ent.getName())
                         .id(ent.getId())
                         .build())
@@ -40,7 +40,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public ProfessionDTO save(Long id, ProfessionDTO profession) {
         ProfessionDTO professionFromDB = getProfessionById(id);
-        if(professionFromDB == null){
+        if (professionFromDB == null) {
             log.info("Не найден Profession с id: {} для обновления", id);
         }
 

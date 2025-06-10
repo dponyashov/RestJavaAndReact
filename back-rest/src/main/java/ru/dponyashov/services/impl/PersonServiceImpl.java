@@ -26,7 +26,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Collection<PersonDTO> getPersons() {
         return personRepository.findAll().stream()
-                .map(ent->PersonDTO.builder()
+                .map(ent -> PersonDTO.builder()
                         .id(ent.getId())
                         .logo(ent.getLogo())
                         .lvl(ent.getLvl())
@@ -48,7 +48,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonDTO getPersonById(Long id) {
         return personRepository.findById(id)
-                .map(ent->PersonDTO.builder()
+                .map(ent -> PersonDTO.builder()
                         .id(ent.getId())
                         .logo(ent.getLogo())
                         .lvl(ent.getLvl())
@@ -70,7 +70,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonDTO save(Long id, PersonDTO profession) {
         PersonDTO professionFromDB = getPersonById(id);
-        if(professionFromDB == null){
+        if (professionFromDB == null) {
             log.info("Не найден Person с id: {} для обновления", id);
         }
 
@@ -132,7 +132,7 @@ public class PersonServiceImpl implements PersonService {
                 .orElseThrow(() -> new NoSuchElementException("Person не найден!"));
 
         entPerson.getWeapons().forEach(weapon -> {
-            if(weapon.getId().equals(idWeapon)){
+            if (weapon.getId().equals(idWeapon)) {
                 throw new RuntimeException("Weapon уже есть в списке для Person!");
             }
         });
@@ -204,7 +204,7 @@ public class PersonServiceImpl implements PersonService {
                 .orElseThrow(() -> new NoSuchElementException("Person не найден!"));
 
         entPerson.getItems().forEach(item -> {
-            if(item.getId().equals(idItem)){
+            if (item.getId().equals(idItem)) {
                 throw new RuntimeException("Item уже есть в списке для Person!");
             }
         });
@@ -268,7 +268,7 @@ public class PersonServiceImpl implements PersonService {
                 .orElseThrow(() -> new NoSuchElementException("Person не найден!"));
 
         entPerson.getArmors().forEach(armor -> {
-            if(armor.getId().equals(idArmor)){
+            if (armor.getId().equals(idArmor)) {
                 throw new RuntimeException("Armor уже есть в списке для Person!");
             }
         });

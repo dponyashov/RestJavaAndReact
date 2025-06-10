@@ -20,7 +20,7 @@ public class ArmorServiceImpl implements ArmorService {
     @Override
     public Collection<ArmorDTO> getArmors() {
         return armorRepository.findAll().stream()
-                .map(ent->ArmorDTO.builder()
+                .map(ent -> ArmorDTO.builder()
                         .name(ent.getName())
                         .description(ent.getDescription())
                         .id(ent.getId())
@@ -31,7 +31,7 @@ public class ArmorServiceImpl implements ArmorService {
     @Override
     public ArmorDTO getArmorById(Long id) {
         return armorRepository.findById(id)
-                .map(ent->ArmorDTO.builder()
+                .map(ent -> ArmorDTO.builder()
                         .name(ent.getName())
                         .description(ent.getDescription())
                         .id(ent.getId())
@@ -43,7 +43,7 @@ public class ArmorServiceImpl implements ArmorService {
     public ArmorDTO save(Long id, ArmorDTO armor) {
 
         ArmorDTO armorFromDB = getArmorById(id);
-        if(armorFromDB == null){
+        if (armorFromDB == null) {
             log.info("Не найден Armor с id: {} для обновления", id);
         }
 

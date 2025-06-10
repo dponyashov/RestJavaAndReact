@@ -20,7 +20,7 @@ public class RaceServiceImpl implements RaceService {
     @Override
     public Collection<RaceDTO> getRaces() {
         return raceRepository.findAll().stream()
-                .map(ent->RaceDTO.builder()
+                .map(ent -> RaceDTO.builder()
                         .name(ent.getName())
                         .id(ent.getId())
                         .build())
@@ -30,7 +30,7 @@ public class RaceServiceImpl implements RaceService {
     @Override
     public RaceDTO getRaceById(Long id) {
         return raceRepository.findById(id)
-                .map(ent->RaceDTO.builder()
+                .map(ent -> RaceDTO.builder()
                         .name(ent.getName())
                         .id(ent.getId())
                         .build())
@@ -40,7 +40,7 @@ public class RaceServiceImpl implements RaceService {
     @Override
     public RaceDTO save(Long id, RaceDTO race) {
         RaceDTO raceFromDB = getRaceById(id);
-        if(raceFromDB == null){
+        if (raceFromDB == null) {
             log.info("Не найден Race с id: {} для обновления", id);
         }
 

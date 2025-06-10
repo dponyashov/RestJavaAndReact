@@ -8,12 +8,12 @@ spring:
     url: jdbc:postgresql://localhost:5432/back_db
     username: ${DB_USER}
     password: ${DB_PASSWORD}
-#  flyway:
-#    schemas:
-#      - public
-#      - main_schema
-#    out-of-order: true
-#    ignore-missing-migrations: true
+  #  flyway:
+  #    schemas:
+  #      - public
+  #      - main_schema
+  #    out-of-order: true
+  #    ignore-missing-migrations: true
   jpa:
     properties:
       hibernate:

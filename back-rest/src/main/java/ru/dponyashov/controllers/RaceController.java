@@ -20,33 +20,33 @@ public class RaceController {
     private final RaceService raceService;
 
     @GetMapping
-    public Collection<RaceDTO> getRaces(){
+    public Collection<RaceDTO> getRaces() {
         return raceService.getRaces();
     }
 
     @GetMapping("/{id:\\d+}")
-    public RaceDTO getRaceById(@PathVariable("id") Long id){
+    public RaceDTO getRaceById(@PathVariable("id") Long id) {
         return raceService.getRaceById(id);
     }
 
     @PostMapping
-    public RaceDTO saveNewRace(@RequestBody RaceDTO newRace){
+    public RaceDTO saveNewRace(@RequestBody RaceDTO newRace) {
         return raceService.save(newRace);
     }
 
     @PutMapping("/{id:\\d+}")
-    public RaceDTO saveRace(@PathVariable("id") Long id, @RequestBody RaceDTO newRace){
+    public RaceDTO saveRace(@PathVariable("id") Long id, @RequestBody RaceDTO newRace) {
         return raceService.save(id, newRace);
     }
 
     @DeleteMapping("/{id:\\d+}")
-    public void deleteRace(@PathVariable("id") Long id){
+    public void deleteRace(@PathVariable("id") Long id) {
         raceService.deleteRaceById(id);
     }
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<ProblemDetail> handlerNoSuchElementException(NoSuchElementException exception,
-                                                                       Locale locale){
+                                                                       Locale locale) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
                         "Раса не найдена!")

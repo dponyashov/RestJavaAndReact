@@ -21,6 +21,6 @@ public class ProfessionEntity {
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="profession_id", referencedColumnName = "id")
+    @JoinColumn(name = "profession_id", referencedColumnName = "id")
     private Collection<PersonEntity> persons;
 }

@@ -20,34 +20,34 @@ public class ArmorController {
     private final ArmorService armorService;
 
     @GetMapping
-    public Collection<ArmorDTO> getArmors(){
+    public Collection<ArmorDTO> getArmors() {
         return armorService.getArmors();
     }
 
     @GetMapping("/{id:\\d+}")
-    public ArmorDTO getArmorById(@PathVariable("id") Long id){
+    public ArmorDTO getArmorById(@PathVariable("id") Long id) {
         return armorService.getArmorById(id);
     }
 
     @PostMapping
-    public ArmorDTO saveNewArmor(@RequestBody ArmorDTO newArmor){
+    public ArmorDTO saveNewArmor(@RequestBody ArmorDTO newArmor) {
         return armorService.save(newArmor);
     }
 
     @PutMapping("/{id:\\d+}")
-    public ArmorDTO saveArmor(@PathVariable("id") Long id, @RequestBody ArmorDTO newArmor){
+    public ArmorDTO saveArmor(@PathVariable("id") Long id, @RequestBody ArmorDTO newArmor) {
 //        newArmor.setId(id);
         return armorService.save(id, newArmor);
     }
 
     @DeleteMapping("/{id:\\d+}")
-    public void deleteArmor(@PathVariable("id") Long id){
+    public void deleteArmor(@PathVariable("id") Long id) {
         armorService.deleteArmorById(id);
     }
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<ProblemDetail> handlerNoSuchElementException(NoSuchElementException exception,
-                                                                       Locale locale){
+                                                                       Locale locale) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
                         "Снаряжение не найдено!")

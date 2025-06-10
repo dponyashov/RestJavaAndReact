@@ -8,7 +8,8 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "t_item")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
